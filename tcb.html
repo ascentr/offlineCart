@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="store.js" async></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles-tcb.css" />
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-8">
+                <section>
+                    <h2 class="section-header">Menu</h2>
+                    <div class="shop-items">
+                        <div class="shop-item">
+                            <div class="shop-item-details">
+                                <span class="shop-item-title">Double Cheese Burger </span>
+                                <span class="shop-item-price">7.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+                        <div class="shop-item">
+                            <div class="shop-item-details">
+                                <span class="shop-item-title">Boss Double Cheese Burger</span>
+                                <span class="shop-item-price">9.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+                        <div class="shop-item">
+                            <span class="shop-item-title">Pepper Tate Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">8.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+                        <div class="shop-item">
+                            <span class="shop-item-title">Triple Bacon Cheese Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">10.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+                        <div class="shop-item">
+                            <span class="shop-item-title">Road House Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">9.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+                        <div class="shop-item">
+                            <span class="shop-item-title">Spicey Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">8.99</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+                        <div class="shop-item">
+                            <span class="shop-item-title">Hot Mess Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">9.99</span> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+                        <div class="shop-item">
+                            <span class="shop-item-title">Chicken Bacon Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">7.49</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+                        <div class="shop-item">
+                            <span class="shop-item-title">Chicken Kiev Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">6.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+                        <div class="shop-item">
+                            <span class="shop-item-title">Spicy Chicken Burger</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">7.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+                        <div class="shop-item">
+                            <span class="shop-item-title">Kids Burger Meal &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                &nbsp;</span>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">4.99</span>
+                                <button class="btn btn-primary  shop-item-button" type="button">ADD</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+
+            <script>
+                function printOrder(divName) {
+                    var cartRows = document.getElementsByClassName('cart-row');
+
+                    //console.log('the now of rows is', cartRows.length)
+
+                    var cartRowContent = document.getElementsByClassName('cart-item')
+                    for (var n = 0; n < cartRows.length; n++ ){ 
+                        console.log( title[n])
+                    }
+
+                    var printContents = document.getElementById(divName).innerHTML;
+                    var originalContents = document.body.innerHTML;
+                    document.body.innerHTML = printContents;
+                    window.print();
+                    document.body.innerHTML = originalContents;
+                }
+
+                function takeOrder() {
+
+                    var customer = document.getElementsByClassName('order-input');
+//                    console.log(customer.name.value, customer.tel.value, customer.add1.value, customer.add2.value)
+                    if (customer.add1.value) {
+                        console.log("carry on")
+                    } else {
+                        console.log('You need a delivery address')
+                    }
+                    var d = new Date();
+                    var strDate = d.toLocaleDateString();
+                    var strTime = d.toLocaleTimeString();
+                    dateAndTime = strDate + "-" + strTime
+                    var myprintDiv = document.getElementById("customer-details").innerHTML = `
+                        <div>
+                            <span class="print-customer">${dateAndTime } </span>  &nbsp;
+                            <span class="print-customer">${customer.name.value} </span> &nbsp;
+                            <span class="print-customer"><b>${customer.tel.value} </b></span> <br/>
+                            <span class="print-customer"><b>${customer.add1.value}</b> </span> 
+                            <span class="print-customer"><b>${customer.add2.value}</b> </span> 
+                        </div>
+                    `
+                }
+            </script>
+            <div class="col-sm-9 col-md-4 bg-warning">
+
+                <section class="container content-section">
+                    <h2 class="section-header">Order</h2>
+                    <div id="print-order">
+                        <div class="customer-details" id="customer-details"
+                            style="width:100%; flex-direction:row; display:flex; justify-content: space-between;">
+                            <div>
+                                <span class="order-label">Name: </span> <input type="text" class="order-input"
+                                    name="name" /><br />
+                                <span class="order-label">Tel: </span> <input type="text" class="order-input"
+                                    name="tel" /> <br />
+                                <span class="order-label">Address : </span> <input type="text" class="order-input"
+                                    name="add1" /><br />
+                                <span class="order-label">Post Code : </span> <input type="text" class="order-input"
+                                    name="add2" /><br />
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-purchase" type="button"
+                                    onclick="takeOrder()">Proceed</button>
+                            </div>
+
+                        </div>
+
+                        <div class="cart-items">
+                        </div>
+                        <div class="print-cart">
+
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Total</strong>
+                            <span class="cart-total-price">0</span>
+                        </div>
+                    </div>
+                    <div class="print-button-div">
+                        <button class="btn btn-primary btn-print" id="print-button" type="button"
+                            onclick="printOrder('print-order')">Print</button>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+    </div> <!-- close container-fluid-->
+
+    <footer class="main-footer">
+
+        <ul class="nav footer-nav">
+            <li>
+                <a href="#burgers">
+                    Burgers
+                </a>
+            </li>
+            <li>
+                <a href="#dogs">
+                    Dogs
+                </a>
+            </li>
+            <li>
+                <a href="#sides">
+                    Sides
+                </a>
+            </li>
+            <li>
+                <a href="#sides">
+                    quesadilla
+                </a>
+            </li>
+            <li>
+                <a href="#sides">
+                    Deserts & Drinks
+                </a>
+            </li>
+
+
+
+        </ul>
+
+    </footer>
+
+
+</body>
+
+</html>
